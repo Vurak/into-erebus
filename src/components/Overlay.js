@@ -17,8 +17,8 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
         className="scroll">
         <div className="timeline">
           {timelineTicks.map((tick, i) => {
-            const pos = 50 - 300*(scrollProgress-((tick.year - 1844) / 5));
-            const opa = -60*(scrollProgress-((tick.year - 1844) / 5))**2+1;
+            const pos = 50 - 300*((scrollProgress)-((tick.year - 1844) / 5));
+            const opa = -60*((scrollProgress)-((tick.year - 1844) / 5))**2+1;
             return (
               <div key={i} className="timeline-section" style={{ top: `${pos}%`, opacity: `${opa}`}}>
                 <div className="timeline-tick" style={{ height: `100%` }}></div>
@@ -28,13 +28,13 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => {
           })}
         </div>
 
-        <div style={{ height: "100vh" }}>
+        {/* <div style={{ height: "100vh" }}>
           <div className="dot">
             <h1>headset</h1>
             Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
           </div>
-        </div>
-        <div style={{ height: "1000vh" }}>
+        </div> */}
+        <div style={{ height: "2000vh" }}>
           {/* <div className="dot">
             <h1>headset</h1>
             Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
