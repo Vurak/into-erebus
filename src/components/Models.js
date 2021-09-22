@@ -1,7 +1,7 @@
 import * as THREE from "three"
 import React, { useEffect, useRef, useState } from "react"
-import { useGLTF, useAnimations, PerspectiveCamera, Html } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber"
+import { useGLTF, useAnimations, PerspectiveCamera, Html, Plane } from "@react-three/drei"
+import { useFrame, useLoader } from "@react-three/fiber"
 import Particles from "./particles/Particles"
 
 const color = new THREE.Color()
@@ -13,7 +13,7 @@ export default function Model({ scroll, ...props }) {
   const { nodes, materials, animations } = useGLTF("/model2.glb")
   const { actions, mixer } = useAnimations(animations, group)
   const [hovered, setHovered] = useState()
-  const extras = { receiveShadow: true, castShadow: true, "material-envMapIntensity": 0.2 }
+  const extras = { receiveShadow: true, castShadow: true }
   // useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
     if (hovered) group.current.getObjectByName(hovered).material.color.set("white")
@@ -31,6 +31,7 @@ export default function Model({ scroll, ...props }) {
       child.rotation.z = Math.sin((et + index * 2000) / 3) / 10
     })
   })
+  const texture1 = useLoader(THREE.TextureLoader, "/port1.png")
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -39,8 +40,20 @@ export default function Model({ scroll, ...props }) {
         onPointerOut={(e) => (e.stopPropagation(), setHovered(null))}
         position={[0, 0, -30.35]}
         scale={[0.25, 0.25, 0.25]}>
-        {/* <mesh name="Cube" geometry={nodes.Cube.geometry} {...extras}>
+        {/* <mesh name="Cube" {...extras}>
           <meshBasicMaterial color='pink'/>
+          <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
+          <meshBasicMaterial attachArray="material" map={texture1} />
+          <meshBasicMaterial attachArray="material" map={texture1} />
+          <meshBasicMaterial attachArray="material" map={texture1} />
+          <meshBasicMaterial attachArray="material" map={texture1} />
+          <meshBasicMaterial attachArray="material" map={texture1} />
+          <meshBasicMaterial attachArray="material" map={texture1} />
+        </mesh> */}
+        <Plane>
+          <meshBasicMaterial attach="material" map={texture1} />
+        </Plane>
+        {/* <mesh>
         </mesh> */}
       </group>
       <group ref={camera} name="Camera" position={[0, 0, 0]} rotation={[1.62, 0.01, 0.11]} >
