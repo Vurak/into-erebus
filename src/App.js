@@ -6,6 +6,7 @@ import Model from "./components/Models"
 import Overlay from "./components/Overlay"
 import { useState } from "react";
 import ScrollSections from "./components/ScrollSections";
+import ScrollCamera from "./components/scroll/ScrollCamera"
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -29,6 +30,7 @@ function App() {
           <fog attach="fog" args={["black", 0.1, 50]} />
           {/* <ambientLight intensity={1} /> */}
           <Suspense fallback={null}>
+            <ScrollCamera scroll={scroll} />
             <ScrollSections scroll={scroll} />
             {/* <Model scroll={scroll} /> */}
             {/* <Environment preset="city" /> */}
