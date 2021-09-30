@@ -16,9 +16,10 @@ export default function Model({ scroll, ...props }) {
   const extras = { receiveShadow: true, castShadow: true }
   // useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
   useEffect(() => {
-    if (hovered) group.current.getObjectByName(hovered).material.color.set("white")
+    if (hovered) group.current.getObjectByName(hovered).material.color.set("blue")
     document.body.style.cursor = hovered ? "pointer" : "auto"
   }, [hovered])
+
   useFrame((state) => {
     // actions["CameraAction.005"].time = THREE.MathUtils.lerp(actions["CameraAction.005"].time, actions["CameraAction.005"].getClip().duration * scroll.current, 0.05)
     camera.current.position.z = 2.04 - scroll.current * 100
@@ -39,8 +40,9 @@ export default function Model({ scroll, ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group
-        onPointerOver={(e) => (e.stopPropagation(), setHovered(e.object.name))}
-        onPointerOut={(e) => (e.stopPropagation(), setHovered(null))}
+        // name="test"
+        // onPointerOver={(e) => (e.stopPropagation(), setHovered(e.object.name))}
+        // onPointerOut={(e) => (e.stopPropagation(), setHovered(null))}
         position={[0, 0, -30.35]}
         scale={[1, 1, 1]}>
         {/* <mesh name="Cube" {...extras}>
@@ -56,12 +58,25 @@ export default function Model({ scroll, ...props }) {
         {/* <Plane position={[0, 0, -0.52]}>
           <meshBasicMaterial transparent attach="material" map={texture1} />
         </Plane> */}
-        <Plane position={[-0.5, 0, -0.5]}>
-          <meshBasicMaterial transparent attach="material" map={texture2} />
+        <Plane 
+          name="test"
+          position={[-0.5, 0, -0.5]}
+          onPointerOver={(e) => (e.stopPropagation(), setHovered(e.object.name))}
+          onPointerOut={(e) => {e.stopPropagation(); setHovered(null)}}
+          >
+          <meshBasicMaterial attach="material" color="pink" />
         </Plane>
-        <Plane position={[0.3, 0, -0.4]}>
+        <Plane 
+          name="test2"
+          position={[0.5, 0, -0.5]}
+          onPointerOver={(e) => (e.stopPropagation(), setHovered(e.object.name))}
+          onPointerOut={(e) => {e.stopPropagation(); setHovered(null)}}
+          >
+          <meshBasicMaterial attach="material" color="pink" />
+        </Plane>
+        {/* <Plane position={[0.3, 0, -0.4]}>
           <meshBasicMaterial transparent attach="material" map={texture3} />
-        </Plane>
+        </Plane> */}
         {/* <mesh>
         </mesh> */}
       </group>

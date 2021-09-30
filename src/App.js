@@ -5,6 +5,7 @@ import Particles from './components/particles/Particles';
 import Model from "./components/Models"
 import Overlay from "./components/Overlay"
 import { useState } from "react";
+import ScrollSections from "./components/ScrollSections";
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -28,7 +29,8 @@ function App() {
           <fog attach="fog" args={["black", 0.1, 50]} />
           {/* <ambientLight intensity={1} /> */}
           <Suspense fallback={null}>
-            <Model scroll={scroll} />
+            <ScrollSections scroll={scroll} />
+            {/* <Model scroll={scroll} /> */}
             {/* <Environment preset="city" /> */}
             {/* <Particles count={5000}/> */}
           </Suspense>
