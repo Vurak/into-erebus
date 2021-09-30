@@ -31,7 +31,10 @@ export default function Model({ scroll, ...props }) {
       child.rotation.z = Math.sin((et + index * 2000) / 3) / 10
     })
   })
-  const texture1 = useLoader(THREE.TextureLoader, "/port1.png")
+  const texture1 = useLoader(THREE.TextureLoader, "/images/port_bg.png")
+  const texture2 = useLoader(THREE.TextureLoader, "/images/port_fg_1.png")
+  const texture3 = useLoader(THREE.TextureLoader, "/images/port_fg_2.png")
+
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -39,7 +42,7 @@ export default function Model({ scroll, ...props }) {
         onPointerOver={(e) => (e.stopPropagation(), setHovered(e.object.name))}
         onPointerOut={(e) => (e.stopPropagation(), setHovered(null))}
         position={[0, 0, -30.35]}
-        scale={[0.25, 0.25, 0.25]}>
+        scale={[1, 1, 1]}>
         {/* <mesh name="Cube" {...extras}>
           <meshBasicMaterial color='pink'/>
           <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
@@ -50,13 +53,19 @@ export default function Model({ scroll, ...props }) {
           <meshBasicMaterial attachArray="material" map={texture1} />
           <meshBasicMaterial attachArray="material" map={texture1} />
         </mesh> */}
-        <Plane>
-          <meshBasicMaterial attach="material" map={texture1} />
+        {/* <Plane position={[0, 0, -0.52]}>
+          <meshBasicMaterial transparent attach="material" map={texture1} />
+        </Plane> */}
+        <Plane position={[-0.5, 0, -0.5]}>
+          <meshBasicMaterial transparent attach="material" map={texture2} />
+        </Plane>
+        <Plane position={[0.3, 0, -0.4]}>
+          <meshBasicMaterial transparent attach="material" map={texture3} />
         </Plane>
         {/* <mesh>
         </mesh> */}
       </group>
-      <group ref={camera} name="Camera" position={[0, 0, 0]} rotation={[1.62, 0.01, 0.11]} >
+      <group ref={camera} name="Camera" position={[0, 0, 0]} rotation={[1.62, 0, 0]} >
         <PerspectiveCamera makeDefault far={50} near={0.1} fov={28} rotation={[-Math.PI / 2, 0, 0]}>
         
           <Particles count={5000}/>
