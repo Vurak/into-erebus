@@ -8,7 +8,7 @@ const ScrollCamera = ({ scroll }) => {
   const extras = { receiveShadow: true, castShadow: true }
 
   useFrame((state) => {
-    camera.current.position.z = 2.04 - scroll.current * 100
+    camera.current.position.z = 2.04 - scroll * 100
   })
 
   return (
