@@ -1,18 +1,20 @@
 import { useFrame } from "@react-three/fiber"
-import React, { forwardRef, useState } from "react"
+import React, { forwardRef, useContext, useState } from "react"
+import ScrollContext from "../context/ScrollContext"
 import { timelineTicks } from "../store/store"
 
 const Overlay = forwardRef(({ caption, scroll }, ref) => {
-  const [scrollProgress, setScrollProgress] = useState(0)
+  // const [scrollProgress, setScrollProgress] = useState(0)
 
+  const { scrollProgress , setScrollProgress } = useContext(ScrollContext)
   return (
     <>
       <div
         ref={ref}
         onScroll={(e) => {
-          scroll.current = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
-          caption.current.innerText = scroll.current.toFixed(2)
-          setScrollProgress(scroll.current)
+          // scroll.current = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
+          // caption.current.innerText = scroll.current.toFixed(2)
+          setScrollProgress(e.target.scrollTop / (e.target.scrollHeight - window.innerHeight))
         }}
         className="scroll">
         <div className="timeline">
