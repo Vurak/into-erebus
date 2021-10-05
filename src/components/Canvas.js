@@ -10,8 +10,6 @@ export default ({overlay}) => {
 
   const { scrollProgress, setScrollProgress } = useContext(ScrollContext)
 
-  const scroll = useRef(0)
-
   return (
           <Canvas
             shadows

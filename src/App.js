@@ -18,7 +18,7 @@ function App() {
     <div className="body-container">
       <ScrollContext.Provider value={{scrollProgress, setScrollProgress}}>
         <Canvas overlay={overlay} />
-        <Overlay ref={overlay} caption={caption} scroll={scrollProgress} />
+        <Overlay ref={overlay} caption={caption} />
       </ScrollContext.Provider>
     </div>
   );
