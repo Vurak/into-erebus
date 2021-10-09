@@ -17,7 +17,7 @@ export default ({overlay}) => {
               // setScrollProgress(e.target.scrollTop / (e.target.scrollHeight - window.innerHeight))
               // scroll.current = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
               // caption.current.innerText = scroll.current.toFixed(2)
-              setScrollProgress(e.target.scrollTop / (e.target.scrollHeight - window.innerHeight))
+              // setScrollProgress(e.target.scrollTop / (e.target.scrollHeight - window.innerHeight))
             }}
             onCreated={(state) => state.events.connect(overlay.current)}
             raycaster={{ computeOffsets: ({ clientX, clientY }) => ({ offsetX: clientX, offsetY: clientY }) }}>

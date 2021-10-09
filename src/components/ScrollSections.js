@@ -6,10 +6,6 @@ import ScrollContext from "../context/ScrollContext"
 const ScrollSections = () => {
   
   const { scrollProgress } = useContext(ScrollContext)
-  
-  useEffect(() => {
-    console.log('s',scrollProgress)
-  })
 
   return (
     <>
