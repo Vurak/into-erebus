@@ -9,7 +9,7 @@ const ScrollSections = () => {
 
   return (
     <>
-      <NormalizedScrollSection scroll={scrollProgress} start={0} end={0.1}/>
+      <NormalizedScrollSection scroll={scrollProgress} start={0.2} end={0.1}/>
     </>
   )
 }

@@ -2,12 +2,10 @@ import React, { Suspense, useContext, useRef } from "react"
 import { Canvas } from '@react-three/fiber';
 import ScrollSections from "./ScrollSections";
 import ScrollCamera from "./scroll/ScrollCamera"
+
 import ScrollContext from "../context/ScrollContext";
 
-
 export default ({overlay}) => {
-  // const [scrollProgress, setScrollProgress] = useState(0)
-
   const { scrollProgress, setScrollProgress } = useContext(ScrollContext)
 
   return (

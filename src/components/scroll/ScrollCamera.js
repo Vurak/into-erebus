@@ -1,14 +1,15 @@
-import React, { useRef } from "react"
+import React, { useRef, useContext } from "react"
 import { PerspectiveCamera } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import Particles from "../particles/Particles"
+import DepthContext from "../../context/DepthContext"
 
 const ScrollCamera = ({ scroll }) => {
   const camera = useRef()
-  const extras = { receiveShadow: true, castShadow: true }
-
+  const depth = useContext(DepthContext)
+  
   useFrame((state) => {
-    camera.current.position.z = 2.04 - scroll * 100
+    camera.current.position.z = -scroll * depth
   })
 
   return (
