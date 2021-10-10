@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react"
 import DepthContext from "../../context/DepthContext"
 
 const NormalizedScrollSection = ({start, end}) => {
-  const { depth } = useContext(DepthContext)
+  const depth = useContext(DepthContext)
   return (
     <group position={[0,0,-start*depth]}>
       <Plane

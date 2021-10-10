@@ -1,11 +1,11 @@
 import { useFrame } from "@react-three/fiber"
 import React, { forwardRef, useContext, useState } from "react"
+
 import ScrollContext from "../context/ScrollContext"
 import { timelineTicks } from "../store/store"
 
 const Overlay = forwardRef(({ caption }, ref) => {
   const { scrollProgress , setScrollProgress } = useContext(ScrollContext)
-
   return (
     <>
       <div
@@ -35,12 +35,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
             Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
           </div>
         </div> */}
-        <div style={{ height: "2000vh" }}>
-          {/* <div className="dot">
-            <h1>headset</h1>
-            Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
-          </div> */}
-        </div>
+        <div style={{ height: `2000vh` }}/>
         <span className="caption" ref={caption}>
           0.00
         </span>
