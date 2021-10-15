@@ -1,15 +1,14 @@
 import { useContext, useEffect } from "react"
-import NormalizedScrollSection from "./scroll/NormalizedScrollSection"
+import OffsetScrollSection from "./scroll/OffsetScrollSection"
 import ScrollContext from "../context/ScrollContext"
 
 
 const ScrollSections = () => {
   
-  const { scrollProgress } = useContext(ScrollContext)
-
   return (
     <>
-      <NormalizedScrollSection scroll={scrollProgress} start={0.2} end={0.1}/>
+      <OffsetScrollSection start={0.2}/>
+      <OffsetScrollSection start={0.3}/>
     </>
   )
 }

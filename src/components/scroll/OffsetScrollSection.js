@@ -2,7 +2,7 @@ import { Plane } from "@react-three/drei"
 import { useContext, useEffect } from "react"
 import DepthContext from "../../context/DepthContext"
 
-const NormalizedScrollSection = ({start, end}) => {
+const OffsetScrollSection = ({start, end}) => {
   const depth = useContext(DepthContext)
   return (
     <group position={[0,0,-start*depth]}>
@@ -15,4 +15,4 @@ const NormalizedScrollSection = ({start, end}) => {
   )
 }
 
-export default NormalizedScrollSection
+export default OffsetScrollSection
