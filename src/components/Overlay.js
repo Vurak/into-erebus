@@ -35,7 +35,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
             Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
           </div>
         </div> */}
-        <div style={{ height: `2000vh` }}/>
+        <div style={{ height: `6000vh` }}/>
         <span className="caption" ref={caption}>
           0.00
         </span>

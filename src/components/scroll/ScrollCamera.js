@@ -3,13 +3,15 @@ import { PerspectiveCamera } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import Particles from "../particles/Particles"
 import DepthContext from "../../context/DepthContext"
+import ScrollContext from "../../context/ScrollContext"
 
-const ScrollCamera = ({ scroll }) => {
+const ScrollCamera = () => {
   const camera = useRef()
   const depth = useContext(DepthContext)
+  const {scrollProgress} = useContext(ScrollContext)
   
   useFrame((state) => {
-    camera.current.position.z = -scroll * depth
+    camera.current.position.z = -scrollProgress * depth * 0.1
   })
 
   return (

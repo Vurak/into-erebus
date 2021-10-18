@@ -5,7 +5,7 @@ import DepthContext from "../../context/DepthContext"
 const OffsetScrollSection = ({offset, scrollRange, children}) => {
   const depth = useContext(DepthContext)
   return (
-    <group position={[offset[0],offset[1],-offset[2]*depth]}>
+    <group position={[offset[0],offset[1],-offset[2]]}>
       {children}
     </group>
   )
