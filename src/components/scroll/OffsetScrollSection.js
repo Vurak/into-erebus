@@ -1,16 +1,12 @@
 import { Plane } from "@react-three/drei"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import DepthContext from "../../context/DepthContext"
 
-const OffsetScrollSection = ({start, end}) => {
+const OffsetScrollSection = ({offset, scrollRange, children}) => {
   const depth = useContext(DepthContext)
   return (
-    <group position={[0,0,-start*depth]}>
-      <Plane
-      name="test"
-      position={[-0.5, 0, -0.5]}>
-        <meshBasicMaterial attach="material" color="pink" />
-      </Plane>
+    <group position={[offset[0],offset[1],-offset[2]*depth]}>
+      {children}
     </group>
   )
 }
