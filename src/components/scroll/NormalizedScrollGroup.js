@@ -16,17 +16,13 @@ export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPositi
   const [normalizedScroll, setNormalizedScroll] = useState(0)
   const { scrollProgress, setScrollProgress } = useContext(ScrollContext)
   
-  useFrame(() => {
+  useEffect(() => {
     const nScroll = scrollProgress/(end - start)
     if (nScroll != normalizedScroll) {
       setNormalizedScroll(nScroll)
       setPos(lerpVector3(position, deltaPosition, normalizedScroll))
       setRot(lerpVector3(rotation, deltaRotation, normalizedScroll))
     }
-  })
-
-  useEffect(() => {
-    console.log("asaa", scrollProgress)
   }, [scrollProgress])
 
   return(
