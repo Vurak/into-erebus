@@ -1,3 +1,4 @@
+import * as THREE from "three"
 import React, { useRef, useContext } from "react"
 import { PerspectiveCamera } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
@@ -11,7 +12,7 @@ const ScrollCamera = () => {
   const {scrollProgress} = useContext(ScrollContext)
   
   useFrame((state) => {
-    camera.current.position.z = -scrollProgress * depth * 0.1
+    camera.current.position.lerp(new THREE.Vector3(0,0,-scrollProgress * depth),0.5)
   })
 
   return (
