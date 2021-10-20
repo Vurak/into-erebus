@@ -12,11 +12,7 @@ function App() {
   const value = {scrollProgress, setScrollProgress}
   const overlay = useRef()
   const caption = useRef()
-
-  useEffect(() => {
-    console.log(scrollProgress)
-  }, [scrollProgress])
-
+  
   return (
     <div className="body-container">
       <ScrollContext.Provider value={value}>
