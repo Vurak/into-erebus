@@ -1,32 +1,43 @@
+import * as THREE from "three"
 import { useFrame } from "@react-three/fiber"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef, useState } from "react"
 import ScrollContext from "../../context/ScrollContext"
 
 const lerpVector3 = (initial, final, x) => {
-  const current = initial
+  const current = [...initial]
   for (let i = 0; i < 3; i++) {
-    current[i] += final[i] * x
+    current[i] = initial[0] + final[i] * x
   }
   return current
 }
 
 export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPosition=[0,0,0], rotation=[0,0,0], deltaRotation=[0,0,0], children}) => {
-  const [pos, setPos] = useState(position)
-  const [rot, setRot] = useState(rotation)
   const [normalizedScroll, setNormalizedScroll] = useState(0)
   const { scrollProgress, setScrollProgress } = useContext(ScrollContext)
-  
-  useEffect(() => {
+  const group = useRef()
+
+  const endPositionVector = new THREE.Vector3(
+    deltaPosition[0],
+    deltaPosition[1],
+    deltaPosition[2]
+  )
+  const endRotationVector = new THREE.Vector3(
+    deltaRotation[0],
+    deltaRotation[1],
+    deltaRotation[2]
+  )
+
+  useFrame((state, delta) => {
     const nScroll = scrollProgress/(end - start)
-    if (nScroll != normalizedScroll) {
-      setNormalizedScroll(nScroll)
-      setPos(lerpVector3(position, deltaPosition, normalizedScroll))
-      setRot(lerpVector3(rotation, deltaRotation, normalizedScroll))
-    }
-  }, [scrollProgress])
+    setNormalizedScroll(nScroll)
+    group.current.position.lerp(endPositionVector.clone().multiplyScalar(nScroll), 0.01)
+    // group.current.rotation.set(THREE.Quaternion.setFromEuler(endRotationVector.clone().multiplyScalar(nScroll)), 0.01)
+    // group.current.position.x = lerpVector3(position, deltaPosition, nScroll)[0]
+    // setRot(lerpVector3(rotation, deltaRotation, normalizedScroll))
+  })
 
   return(
-    <group position={pos} rotation={rot}>
+    <group ref={group}>
       {children}
     </group>
   )
