@@ -20,7 +20,8 @@ const CanvasWrapper = ({overlay}) => {
       }}
       onCreated={(state) => state.events.connect(overlay.current)}
       raycaster={{ computeOffsets: ({ clientX, clientY }) => ({ offsetX: clientX, offsetY: clientY }) }}>
-      <fog attach="fog" args={["black", 0.1, 50]} />
+      <fog attach="fog" args={["black", 25, 50]} />
+      <color attach="background" args={["black"]} />
       {/* <ambientLight intensity={1} /> */}
       <Suspense fallback={null}>
         <ScrollContext.Provider value={value}>
