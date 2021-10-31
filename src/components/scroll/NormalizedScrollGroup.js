@@ -28,9 +28,11 @@ export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPositi
   )
 
   useFrame((state, delta) => {
-    const nScroll = scrollProgress/(end - start)
-    setNormalizedScroll(nScroll)
-    group.current.position.lerp(endPositionVector.clone().multiplyScalar(nScroll), 0.01)
+    if (start <= scrollProgress && scrollProgress <= end) {
+      const nScroll = scrollProgress/(end - start)
+      setNormalizedScroll(nScroll)
+      group.current.position.lerp(endPositionVector.clone().multiplyScalar(nScroll), 0.01)
+    }
     // group.current.rotation.set(THREE.Quaternion.setFromEuler(endRotationVector.clone().multiplyScalar(nScroll)), 0.01)
     // group.current.position.x = lerpVector3(position, deltaPosition, nScroll)[0]
     // setRot(lerpVector3(rotation, deltaRotation, normalizedScroll))
