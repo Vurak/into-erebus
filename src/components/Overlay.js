@@ -2,10 +2,13 @@ import { useFrame } from "@react-three/fiber"
 import React, { forwardRef, useContext, useState } from "react"
 
 import ScrollContext from "../context/ScrollContext"
+import TargetContext from "../context/TargetContext"
 import { timelineTicks } from "../store/store"
 
 const Overlay = forwardRef(({ caption }, ref) => {
   const { scrollProgress , setScrollProgress } = useContext(ScrollContext)
+  const { setTarget } = useContext(TargetContext)
+  
   return (
     <>
       <div
@@ -14,6 +17,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
           const scroll = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
           caption.current.innerText = scroll.toFixed(2)
           setScrollProgress(scroll)
+          setTarget(curr => ({...curr, status: false}))
         }}
         className="scroll">
         <div className="timeline">
@@ -22,7 +26,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
             const opa = -60*((scrollProgress)-((tick.year - 1844) / 5))**2+1;
             return (
               <div key={i} className="timeline-section" style={{ top: `${pos}%`, opacity: `${opa}`}}>
-                <div className="timeline-tick" style={{ height: `100%` }}></div>
+                <div className="timeline-tick h-full"></div>
                 <span className="timeline-tick-title">{tick.year} - {tick.title}</span><br/>
               </div>
             )
@@ -35,7 +39,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
             Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
           </div>
         </div> */}
-        <div style={{ height: `6000vh` }}/>
+        <div style={{ height: `4000vh` }}/>
         <span className="caption" ref={caption}>
           0.00
         </span>
