@@ -1,18 +1,30 @@
 import * as THREE from "three"
-import React, { useRef, useContext } from "react"
+import React, { useRef, useContext, useEffect } from "react"
 import { PerspectiveCamera } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import Particles from "../particles/Particles"
+
 import DepthContext from "../../context/DepthContext"
 import ScrollContext from "../../context/ScrollContext"
+import TargetContext from "../../context/TargetContext"
 
 const ScrollCamera = () => {
   const camera = useRef()
   const depth = useContext(DepthContext)
-  const {scrollProgress} = useContext(ScrollContext)
-  
+  const { scrollProgress } = useContext(ScrollContext)
+  const { target, setTarget } = useContext(TargetContext)
+
   useFrame((state) => {
-    camera.current.position.lerp(new THREE.Vector3(0,0,-scrollProgress * depth),0.5)
+    if (target?.status) {
+      console.log("lerping to ", target)
+      camera.current.position.lerp(new THREE.Vector3(
+        target.pos[0],
+        target.pos[1],
+        target.pos[2]
+      ), 0.01)
+    } else {
+      camera.current.position.lerp(new THREE.Vector3(0,0,-scrollProgress * depth), 0.01)
+    }
   })
 
   return (
