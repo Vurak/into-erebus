@@ -1,7 +1,7 @@
 import { createContext } from "react"
 
 const ScrollContext = createContext({
-  scrollProgress: 0,
+  scrollProgress: null,
   setScrollProgress: (n) => {}
 })
 
