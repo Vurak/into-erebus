@@ -10,7 +10,7 @@ import TargetContext from "./context/TargetContext";
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [target, setTarget] = useState({status: false, pos: null})
+  const [target, setTarget] = useState(null)
   const scroll_value = {scrollProgress, setScrollProgress}
   const target_value = {target, setTarget}
   const overlay = useRef()

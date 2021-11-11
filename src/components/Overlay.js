@@ -1,4 +1,3 @@
-import { useFrame } from "@react-three/fiber"
 import React, { forwardRef, useContext, useState } from "react"
 
 import ScrollContext from "../context/ScrollContext"
@@ -17,7 +16,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
           const scroll = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
           caption.current.innerText = scroll.toFixed(2)
           setScrollProgress(scroll)
-          setTarget(curr => ({...curr, status: false}))
+          setTarget(null)
         }}
         className="scroll">
         <div className="timeline">
