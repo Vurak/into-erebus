@@ -46,15 +46,12 @@ const ScrollSections = () => {
         <NormalizedScrollGroup
           start={0}
           end={0.21}
-          deltaPosition={[-5, 0, 0]}
+          deltaPosition={[-10, 0, 0]}
         >
           <Plane
-            onPointerOver={() => setHovered(true)}
-            onPointerOut={() => setHovered(false)}
-            onClick={() => setDescription(c => !c)}
             name="test"
-            scale={scaleShips}
-            position={[9, 5, -15]}>
+            scale={[33,30,1]}
+            position={[15, 8, -15]}>
             <meshBasicMaterial transparent attach="material" map={texture3} />
             {description &&
               <Html distanceFactor={5} position={[-.9, .7, 0]}>
@@ -67,12 +64,12 @@ const ScrollSections = () => {
         <NormalizedScrollGroup
           start={0}
           end={0.21}
-          deltaPosition={[-3, 0, 0]}
+          deltaPosition={[-5, 0, 0]}
         >
           <Plane
             name="test"
-            position={[-8, 5, -20]}
-            scale={scaleShips}>
+            position={[-8, 4, -22]}
+            scale={[22,20,1]}>
             <meshBasicMaterial transparent attach="material" map={texture3} />
           </Plane>
         </NormalizedScrollGroup>
@@ -82,9 +79,9 @@ const ScrollSections = () => {
           deltaPosition={[-0.5, 0, 0]}
         >
           <Plane
-            scale={scaleObs}
             name="test"
-            position={[-3, -3, -8]}>
+            position={[-3, -6, -7]}
+            scale={[9.8,3,1]}>
             <meshBasicMaterial transparent attach="material" map={texture_observers} />
           </Plane>
         </NormalizedScrollGroup>
