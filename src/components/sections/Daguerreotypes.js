@@ -37,15 +37,7 @@ const Daguerreotype = ({position, scale, texture, name}) => {
 }
 
 export const Daguerreotypes = () => {
-  const [description, setDescription] = useState(false)
 
-  const { target, setTarget } = useContext(TargetContext)
-  const targetRef = useRef(null)
-
-  const handleClick = (e) => {
-    console.log(e.object.localToWorld(new Vector3(0,0,6)))
-    setTarget(e.object.localToWorld(new Vector3(0,0,10)))
-  }
   const [crozier, franklin, fitzjames, gore, reid, le_vesconte, fairholme, des_voeux] = useLoader(THREE.TextureLoader, [
     '/images/portraits/crozier.jpg',
     '/images/portraits/franklin.jpg',
@@ -58,47 +50,42 @@ export const Daguerreotypes = () => {
   ])
 
   return (
-    <OffsetScrollSection offset={[0, 0, 90]}>
+    <OffsetScrollSection offset={[0, 0, 70]}>
       <NormalizedScrollGroup
         start={0}
         end={0.21}
         deltaPosition={[0, 0, 0]}
       >
-        <Plane
-          onClick={handleClick}
-          name="test"
-          scale={[3, 4, 1]}
-          position={[9, 0, -20]}>
-          <meshBasicMaterial attach="material" color='#ffffff' />
-        </Plane>
-        <Plane
-          onClick={handleClick}
-          name="test"
-          scale={[3, 4, 1]}
-          position={[4, 7, -5]}>
-          <meshBasicMaterial attach="material" color='#ffffff' />
-        </Plane>
-        <Plane
-          onClick={handleClick}
-          name="test"
-          scale={[3, 4, 1]}
-          position={[-9, 0, 0]}>
-          <meshBasicMaterial attach="material" color='#ffffff' />
-        </Plane>
-        <Plane
-          onClick={handleClick}
-          name="test"
-          scale={[3, 4, 1]}
-          position={[-7, 4, -25]}>
-          <meshBasicMaterial attach="material" color='#ffffff' />
-        </Plane>
-        <Plane
-          onClick={handleClick}
-          name="test"
-          scale={[3, 4, 1]}
-          position={[-6, -4, -10]}>
-          <meshBasicMaterial attach="material" color='#ffffff' />
-        </Plane>
+        <Daguerreotype
+          position={[4, 7, -5]}
+          texture={crozier}
+          name="Francis Crozier"
+        />
+        <Daguerreotype
+          position={[9, 0, -20]}
+          texture={des_voeux}
+          name="Des Voeux"
+        />
+        <Daguerreotype
+          position={[-9, 0, 0]}
+          texture={franklin}
+          name="John Franklin"
+        />
+        <Daguerreotype
+          position={[-7, 4, -25]}
+          texture={fitzjames}
+          name="James Fitzjames"
+        />
+        <Daguerreotype
+          position={[-8, 9, -15]}
+          texture={reid}
+          name="James Read"
+        />
+        <Daguerreotype
+          position={[-6, -4, -10]}
+          texture={gore}
+          name="Graham Gore"
+        />
       </NormalizedScrollGroup>
     </OffsetScrollSection>
   )
