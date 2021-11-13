@@ -46,6 +46,16 @@ export const Daguerreotypes = () => {
     console.log(e.object.localToWorld(new Vector3(0,0,6)))
     setTarget(e.object.localToWorld(new Vector3(0,0,10)))
   }
+  const [crozier, franklin, fitzjames, gore, reid, le_vesconte, fairholme, des_voeux] = useLoader(THREE.TextureLoader, [
+    '/images/portraits/crozier.jpg',
+    '/images/portraits/franklin.jpg',
+    '/images/portraits/fitzjames.jpg',
+    '/images/portraits/gore.jpg',
+    '/images/portraits/reid.jpg',
+    '/images/portraits/le-vesconte.jpg',
+    '/images/portraits/fairholme.jpg',
+    '/images/portraits/des-voeux.jpg'
+  ])
 
   return (
     <OffsetScrollSection offset={[0, 0, 90]}>
