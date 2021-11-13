@@ -1,12 +1,40 @@
 import * as THREE from "three"
 import { useContext, useEffect, useRef, useState } from "react"
 import OffsetScrollSection from "../scroll/OffsetScrollSection"
-import { Html, Plane, useAspect } from "@react-three/drei"
+import { Html, Text, Plane, useAspect } from "@react-three/drei"
 import { useLoader } from "@react-three/fiber"
 import { NormalizedScrollGroup } from "../scroll/NormalizedScrollGroup"
 
 import TargetContext from "../../context/TargetContext"
 import { Vector3 } from "three"
+
+const Daguerreotype = ({position, scale, texture, name}) => {
+  const { target, setTarget } = useContext(TargetContext)
+  
+  const handleClick = (e) => {
+    if (e.object.name === "test") {
+      setTarget(e.object.localToWorld(new Vector3(0,-0.5,10)))
+    }
+  }
+  
+  return(
+    <Plane
+    onClick={handleClick}
+    name="test"
+    scale={[3, 4, 1]}
+    position={position}>
+    <meshBasicMaterial attach="material" map={texture} />
+    <Text 
+      position={[0,-0.6,0]}
+      color="white"
+      letterSpacing={0.2}
+      fontSize={0.1}
+      font="/fonts/imfell-pica-italic.ttf">
+      {name}
+    </Text>
+  </Plane>
+  )
+}
 
 export const Daguerreotypes = () => {
   const [description, setDescription] = useState(false)
