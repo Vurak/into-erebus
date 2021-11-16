@@ -15,7 +15,7 @@ const CanvasWrapper = ({overlay}) => {
       shadows
       onCreated={(state) => state.events.connect(overlay.current)}
       raycaster={{ computeOffsets: ({ clientX, clientY }) => ({ offsetX: clientX, offsetY: clientY }) }}>
-      <fog attach="fog" args={["black", 25, 50]} />
+      <fog attach="fog" args={["black", value_target.target ? 10 : 25, value_target.target ? 20 : 50]} />
       <color attach="background" args={["black"]} />
       {/* <ambientLight intensity={1} /> */}
       <Suspense fallback={null}>
