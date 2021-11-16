@@ -6,7 +6,7 @@ import { timelineTicks } from "../store/store"
 
 const Overlay = forwardRef(({ caption }, ref) => {
   const { scrollProgress , setScrollProgress } = useContext(ScrollContext)
-  const { setTarget } = useContext(TargetContext)
+  const { target, setTarget } = useContext(TargetContext)
   
   return (
     <>
@@ -18,7 +18,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
           setScrollProgress(scroll)
           setTarget(null)
         }}
-        className="scroll">
+        className="scroll" style={{opacity: target ? 0 : 1}}>
         {/* <div className="timeline">
           {timelineTicks.map((tick, i) => {
             const pos = 50 - 300*((scrollProgress)-((tick.year - 1844) / 5));
@@ -50,8 +50,8 @@ const Overlay = forwardRef(({ caption }, ref) => {
         <span className="caption" ref={caption}>
           0.00
         </span>
-
       </div>
+      {target && <div className="description">asdads</div>}
     </>
   )
 })
