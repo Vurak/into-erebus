@@ -50,43 +50,45 @@ export const Daguerreotypes = () => {
   ])
 
   return (
-    <OffsetScrollSection offset={[0, 0, 70]}>
-      <NormalizedScrollGroup
-        start={0}
-        end={0.21}
-        deltaPosition={[0, 0, 0]}
-      >
-        <Daguerreotype
-          position={[4, 7, -5]}
-          texture={crozier}
-          name="Francis Crozier"
-        />
-        <Daguerreotype
-          position={[9, 0, -20]}
-          texture={des_voeux}
-          name="Des Voeux"
-        />
-        <Daguerreotype
-          position={[-9, 0, 0]}
-          texture={franklin}
-          name="John Franklin"
-        />
-        <Daguerreotype
-          position={[-7, 4, -25]}
-          texture={fitzjames}
-          name="James Fitzjames"
-        />
-        <Daguerreotype
-          position={[-8, 9, -15]}
-          texture={reid}
-          name="James Read"
-        />
-        <Daguerreotype
-          position={[-6, -4, -10]}
-          texture={gore}
-          name="Graham Gore"
-        />
-      </NormalizedScrollGroup>
+    <OffsetScrollSection offset={[0, 0, 60]}>
+      <Text 
+        position={[0,0,0]}
+        color="white"
+        letterSpacing={0.2}
+        fontSize={1}
+        font="/fonts/imfell-pica.ttf">
+        CREW
+      </Text>
+      <Daguerreotype
+        position={[-9, 0, -30]}
+        texture={franklin}
+        name="John Franklin"
+      />
+      <Daguerreotype
+        position={[4, 7, -35]}
+        texture={crozier}
+        name="Francis Crozier"
+      />
+      <Daguerreotype
+        position={[-6, -4, -40]}
+        texture={gore}
+        name="Graham Gore"
+      />
+      <Daguerreotype
+        position={[-8, 9, -45]}
+        texture={reid}
+        name="James Read"
+      />
+      <Daguerreotype
+        position={[9, 0, -50]}
+        texture={des_voeux}
+        name="Des Voeux"
+      />
+      <Daguerreotype
+        position={[-7, 4, -55]}
+        texture={fitzjames}
+        name="James Fitzjames"
+      />
     </OffsetScrollSection>
   )
 }
