@@ -31,44 +31,24 @@ const ScrollSections = () => {
   return (
     <>
       <OffsetScrollSection offset={[0, -0.2, 20]}>
-        {/* <Plane
-          position={[0,15,0]}
-          scale={[50,30,0]}>
-          <meshBasicMaterial attach="material" color='#70caff'/>
-        </Plane> */}
-        {/* <Plane
-          position={[0,-2,-30]}
-          rotation={[-Math.PI/2,0,0]}
-          scale={[50,100,0]}
-          >
-          <meshBasicMaterial attach="material" color='#00142e'/>
-        </Plane> */}
         <NormalizedScrollGroup
           start={0}
           end={0.21}
-          deltaPosition={[-10, 0, 0]}
-        >
+          deltaPosition={[-7, 0, 0]}>
           <Plane
             name="test"
             scale={[33,30,1]}
             position={[15, 8, -15]}>
             <meshBasicMaterial transparent attach="material" map={texture3} />
-            {description &&
-              <Html distanceFactor={5} position={[-.9, .7, 0]}>
-                <div>
-                  <p className="text-white font-thin text-xs">Test</p>
-                </div>
-              </Html>}
           </Plane>
         </NormalizedScrollGroup>
         <NormalizedScrollGroup
           start={0}
           end={0.21}
-          deltaPosition={[-5, 0, 0]}
-        >
+          deltaPosition={[-17, 0, 0]}>
           <Plane
             name="test"
-            position={[-8, 4, -22]}
+            position={[-9, 4, -22]}
             scale={[22,20,1]}>
             <meshBasicMaterial transparent attach="material" map={texture3} />
           </Plane>
@@ -76,11 +56,10 @@ const ScrollSections = () => {
         <NormalizedScrollGroup
           start={0}
           end={0.05}
-          deltaPosition={[-0.5, 0, 0]}
-        >
+          deltaPosition={[-0.5, 0, 3]}>
           <Plane
             name="test"
-            position={[-3, -6, -7]}
+            position={[-3, -4, -7]}
             scale={[9.8,3,1]}>
             <meshBasicMaterial transparent attach="material" map={texture_observers} />
           </Plane>
