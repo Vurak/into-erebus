@@ -1,7 +1,7 @@
 import { createContext } from "react"
 
 const DepthContext = createContext(
-  200
+  400
 )
 
 export default DepthContext

@@ -28,7 +28,7 @@ export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPositi
   )
 
   useFrame((state, delta) => {
-    if (start <= scrollProgress && scrollProgress <= end) {
+    if (scrollProgress >= start && scrollProgress <= end) {
       const nScroll = scrollProgress/(end - start)
       setNormalizedScroll(nScroll)
       group.current.position.lerp(endPositionVector.clone().multiplyScalar(nScroll), 0.01)
