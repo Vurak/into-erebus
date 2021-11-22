@@ -29,7 +29,7 @@ const Daguerreotype = ({position, scale, texture, name}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.1}
-      font="/fonts/imfell-pica-italic.ttf">
+      font="/fonts/imfell-pica.ttf">
       {name}
     </Text>
   </Plane>
@@ -38,7 +38,21 @@ const Daguerreotype = ({position, scale, texture, name}) => {
 
 export const Daguerreotypes = () => {
 
-  const [crozier, franklin, fitzjames, gore, reid, le_vesconte, fairholme, des_voeux] = useLoader(THREE.TextureLoader, [
+  const [
+    crozier,
+    franklin,
+    fitzjames,
+    gore,
+    reid,
+    le_vesconte,
+    fairholme,
+    des_voeux,
+    sargent,
+    stanley,
+    osmer,
+    collins,
+    couch
+  ] = useLoader(THREE.TextureLoader, [
     '/images/portraits/crozier.jpg',
     '/images/portraits/franklin.jpg',
     '/images/portraits/fitzjames.jpg',
@@ -46,7 +60,12 @@ export const Daguerreotypes = () => {
     '/images/portraits/reid.jpg',
     '/images/portraits/le-vesconte.jpg',
     '/images/portraits/fairholme.jpg',
-    '/images/portraits/des-voeux.jpg'
+    '/images/portraits/des-voeux.jpg',
+    '/images/portraits/sargent.jpg',
+    '/images/portraits/stanley.jpg',
+    '/images/portraits/osmer.jpg',
+    '/images/portraits/collins.jpg',
+    '/images/portraits/couch.jpg'
   ])
 
   return (
@@ -60,34 +79,69 @@ export const Daguerreotypes = () => {
         CREW
       </Text>
       <Daguerreotype
-        position={[-9, 0, -30]}
+        position={[-6, 0, -30]}
         texture={franklin}
-        name="John Franklin"
+        name="Sir John Franklin"
       />
       <Daguerreotype
-        position={[4, 7, -35]}
+        position={[4, 4, -40]}
         texture={crozier}
         name="Francis Crozier"
       />
       <Daguerreotype
-        position={[-6, -4, -40]}
+        position={[-2, -3, -50]}
         texture={gore}
         name="Graham Gore"
       />
       <Daguerreotype
-        position={[-8, 9, -45]}
+        position={[-6, 2, -60]}
         texture={reid}
-        name="James Read"
+        name="James Reid"
       />
       <Daguerreotype
-        position={[9, 0, -50]}
+        position={[4, 0, -70]}
         texture={des_voeux}
         name="Des Voeux"
       />
       <Daguerreotype
-        position={[-7, 4, -55]}
+        position={[-6, 4, -80]}
         texture={fitzjames}
         name="James Fitzjames"
+      />
+      <Daguerreotype
+        position={[-4, -2, -90]}
+        texture={fairholme}
+        name="James Fairholme"
+      />
+      <Daguerreotype
+        position={[4, 4, -100]}
+        texture={le_vesconte}
+        name="Henry Le Vesconte"
+      />
+      <Daguerreotype
+        position={[-4, 5, -110]}
+        texture={sargent}
+        name="Robert Sargent"
+      />
+      <Daguerreotype
+        position={[3, -1, -120]}
+        texture={stanley}
+        name="Stephen Stanley"
+      />
+      <Daguerreotype
+        position={[-5, -3, -130]}
+        texture={osmer}
+        name="Charles Osmer"
+      />
+      <Daguerreotype
+        position={[3, 4, -140]}
+        texture={collins}
+        name="Henry Collins"
+      />
+      <Daguerreotype
+        position={[-3, 2, -150]}
+        texture={couch}
+        name="Edward Couch"
       />
     </OffsetScrollSection>
   )
