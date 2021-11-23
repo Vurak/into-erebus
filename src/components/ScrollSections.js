@@ -14,9 +14,6 @@ import {
 
 const ScrollSections = () => {
   const [hovered, setHovered] = useState(false)
-  const [description, setDescription] = useState(false)
-
-  const { target, setTarget } = useContext(TargetContext)
 
   useEffect(() => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
@@ -24,9 +21,6 @@ const ScrollSections = () => {
 
   const texture3 = useLoader(THREE.TextureLoader, "/images/Ship1-min.png")
   const texture_observers = useLoader(THREE.TextureLoader, "/images/Observers.png")
-
-  const scaleObs = useAspect(1445, 442, 0.3)
-  const scaleShips = useAspect(2396, 2124, 1)
 
   return (
     <>
