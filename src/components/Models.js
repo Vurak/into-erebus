@@ -32,9 +32,6 @@ export default function Model({ scroll, ...props }) {
       child.rotation.z = Math.sin((et + index * 2000) / 3) / 10
     })
   })
-  const texture1 = useLoader(THREE.TextureLoader, "/images/port_bg.png")
-  const texture2 = useLoader(THREE.TextureLoader, "/images/port_fg_1.png")
-  const texture3 = useLoader(THREE.TextureLoader, "/images/port_fg_2.png")
 
 
   return (

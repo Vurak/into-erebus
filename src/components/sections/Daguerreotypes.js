@@ -38,7 +38,7 @@ const Daguerreotype = ({position, texture, name, rank}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.1}
-      font="/fonts/imfell-pica.ttf">
+      font="./fonts/imfell-pica.ttf">
       {name}
     </Text>
     <Text 
@@ -46,7 +46,7 @@ const Daguerreotype = ({position, texture, name, rank}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.08}
-      font="/fonts/imfell.ttf">
+      font="./fonts/imfell.ttf">
       {rank.toUpperCase()}
     </Text>
   </Plane>
@@ -70,19 +70,19 @@ export const Daguerreotypes = () => {
     collins,
     couch
   ] = useLoader(THREE.TextureLoader, [
-    '/images/portraits/crozier.jpg',
-    '/images/portraits/franklin.jpg',
-    '/images/portraits/fitzjames.jpg',
-    '/images/portraits/gore.jpg',
-    '/images/portraits/reid.jpg',
-    '/images/portraits/le-vesconte.jpg',
-    '/images/portraits/fairholme.jpg',
-    '/images/portraits/des-voeux.jpg',
-    '/images/portraits/sargent.jpg',
-    '/images/portraits/stanley.jpg',
-    '/images/portraits/osmer.jpg',
-    '/images/portraits/collins.jpg',
-    '/images/portraits/couch.jpg'
+    './images/portraits/crozier.jpg',
+    './images/portraits/franklin.jpg',
+    './images/portraits/fitzjames.jpg',
+    './images/portraits/gore.jpg',
+    './images/portraits/reid.jpg',
+    './images/portraits/le-vesconte.jpg',
+    './images/portraits/fairholme.jpg',
+    './images/portraits/des-voeux.jpg',
+    './images/portraits/sargent.jpg',
+    './images/portraits/stanley.jpg',
+    './images/portraits/osmer.jpg',
+    './images/portraits/collins.jpg',
+    './images/portraits/couch.jpg'
   ])
 
   return (
@@ -92,7 +92,7 @@ export const Daguerreotypes = () => {
         color="white"
         letterSpacing={0.2}
         fontSize={1}
-        font="/fonts/imfell-pica.ttf">
+        font="./fonts/imfell-pica.ttf">
         CREW
       </Text>
       <Daguerreotype

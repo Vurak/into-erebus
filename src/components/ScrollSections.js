@@ -19,8 +19,8 @@ const ScrollSections = () => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
   }, [hovered])
 
-  const texture3 = useLoader(THREE.TextureLoader, "/images/Ship1-min.png")
-  const texture_observers = useLoader(THREE.TextureLoader, "/images/Observers.png")
+  const texture3 = useLoader(THREE.TextureLoader, "./images/Ship1-min.png")
+  const texture_observers = useLoader(THREE.TextureLoader, "./images/Observers.png")
 
   return (
     <>
