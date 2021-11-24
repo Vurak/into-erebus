@@ -86,7 +86,7 @@ export const Daguerreotypes = () => {
   ])
 
   return (
-    <OffsetScrollSection offset={[0, 0, 60]}>
+    <OffsetScrollSection offset={[0, 0, 80]}>
       <Text 
         position={[0,0,0]}
         color="white"

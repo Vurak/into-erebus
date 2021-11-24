@@ -8,8 +8,14 @@ const Overlay = forwardRef(({ caption }, ref) => {
   const { scrollProgress , setScrollProgress } = useContext(ScrollContext)
   const { target, setTarget } = useContext(TargetContext)
   
+  const [introduction, setIntroduction] = useState(false)
+
   return (
     <>
+      {introduction 
+      && <div className="intro-container">
+          test
+        </div>}
       <div
         ref={ref}
         onScroll={(e) => {
@@ -34,16 +40,16 @@ const Overlay = forwardRef(({ caption }, ref) => {
         <div style={{ height: "100vh" }}>
 
         </div>
-        <div style={{ height: "500vh" }}>
+        <div style={{ height: "300vh" }}>
           <div className="dot">
             <h1>1845 - Departure</h1>
             19th May HMS Erebus and HMS Terror leave Britain with a supply ship for Greenland via the Orkney Islands. The supply ship returns to Britain with letters. Erebus and Terror continue across Baffin Bay. 
           </div>
         </div>
-        <div style={{ height: "100vh" }}>
+        <div style={{ height: "1000vh" }}>
           <div className="dot">
-            <h1>headset</h1>
-            Virtual reality (VR) is a simulated experience that can be similar to or completely different from the real world.
+            {/* <h2>1845</h2> */}
+            Before departure, pictures were taken of some of the officers on the expedition using an early process of photography called daguerreotype.
           </div>
         </div>
         <div style={{ height: `2000vh` }}/>

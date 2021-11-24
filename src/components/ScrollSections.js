@@ -9,7 +9,9 @@ import TargetContext from "../context/TargetContext"
 
 // Sections
 import {
-  Daguerreotypes
+  Introduction,
+  Daguerreotypes,
+
 } from './sections'
 
 const ScrollSections = () => {
@@ -24,7 +26,8 @@ const ScrollSections = () => {
 
   return (
     <>
-      <OffsetScrollSection offset={[0, -0.2, 20]}>
+      <Introduction/>
+      <OffsetScrollSection offset={[0, -0.2, 40]}>
         <NormalizedScrollGroup
           start={0}
           end={0.21}
