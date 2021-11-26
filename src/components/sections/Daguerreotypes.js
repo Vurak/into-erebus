@@ -8,6 +8,23 @@ import { NormalizedScrollGroup } from "../scroll/NormalizedScrollGroup"
 import TargetContext from "../../context/TargetContext"
 import { Vector3 } from "three"
 
+import {
+  Collins,
+  Couch,
+  Crozier,
+  DesVoeux,
+  Fairholme,
+  Fitzjames,
+  Franklin,
+  Goodsir,
+  Gore,
+  LeVesconte,
+  Osmer,
+  Reid,
+  Sargent,
+  Stanley
+} from '@images/portraits'
+
 const Daguerreotype = ({position, texture, name, rank}) => {
   const { target, setTarget } = useContext(TargetContext)
   const dagRef = useRef(null)
@@ -56,33 +73,35 @@ const Daguerreotype = ({position, texture, name, rank}) => {
 export const Daguerreotypes = () => {
 
   const [
-    crozier,
-    franklin,
-    fitzjames,
-    gore,
-    reid,
-    le_vesconte,
-    fairholme,
-    des_voeux,
-    sargent,
-    stanley,
-    osmer,
     collins,
-    couch
+    couch,
+    crozier,
+    des_voeux,
+    fairholme,
+    fitzjames,
+    franklin,
+    goodsir,
+    gore,
+    le_vesconte,
+    osmer,
+    reid,
+    sargent,
+    stanley
   ] = useLoader(THREE.TextureLoader, [
-    './images/portraits/crozier.jpg',
-    './images/portraits/franklin.jpg',
-    './images/portraits/fitzjames.jpg',
-    './images/portraits/gore.jpg',
-    './images/portraits/reid.jpg',
-    './images/portraits/le-vesconte.jpg',
-    './images/portraits/fairholme.jpg',
-    './images/portraits/des-voeux.jpg',
-    './images/portraits/sargent.jpg',
-    './images/portraits/stanley.jpg',
-    './images/portraits/osmer.jpg',
-    './images/portraits/collins.jpg',
-    './images/portraits/couch.jpg'
+      Collins,
+      Couch,
+      Crozier,
+      DesVoeux,
+      Fairholme,
+      Fitzjames,
+      Franklin,
+      Goodsir,
+      Gore,
+      LeVesconte,
+      Osmer,
+      Reid,
+      Sargent,
+      Stanley,
   ])
 
   return (

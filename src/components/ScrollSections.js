@@ -7,6 +7,8 @@ import { NormalizedScrollGroup } from "./scroll/NormalizedScrollGroup"
 
 import TargetContext from "../context/TargetContext"
 
+import { ship, observers } from '../images'
+
 // Sections
 import {
   Introduction,
@@ -21,8 +23,8 @@ const ScrollSections = () => {
     document.body.style.cursor = hovered ? 'pointer' : 'auto'
   }, [hovered])
 
-  const texture3 = useLoader(THREE.TextureLoader, "./images/Ship1-min.png")
-  const texture_observers = useLoader(THREE.TextureLoader, "./images/Observers.png")
+  const texture3 = useLoader(THREE.TextureLoader, ship)
+  const texture_observers = useLoader(THREE.TextureLoader, observers)
 
   return (
     <>
