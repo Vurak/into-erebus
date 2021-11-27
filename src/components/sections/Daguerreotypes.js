@@ -9,6 +9,11 @@ import TargetContext from "../../context/TargetContext"
 import { Vector3 } from "three"
 
 import {
+  imfell,
+  imfell_pica
+} from '@fonts'
+
+import {
   Collins,
   Couch,
   Crozier,
@@ -55,7 +60,7 @@ const Daguerreotype = ({position, texture, name, rank}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.1}
-      font="./fonts/imfell-pica.ttf">
+      font={imfell_pica}>
       {name}
     </Text>
     <Text 
@@ -63,7 +68,7 @@ const Daguerreotype = ({position, texture, name, rank}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.08}
-      font="./fonts/imfell.ttf">
+      font={imfell}>
       {rank.toUpperCase()}
     </Text>
   </Plane>
@@ -111,7 +116,7 @@ export const Daguerreotypes = () => {
         color="white"
         letterSpacing={0.2}
         fontSize={1}
-        font="./fonts/imfell-pica.ttf">
+        font={imfell}>
         CREW
       </Text>
       <Daguerreotype
@@ -191,6 +196,12 @@ export const Daguerreotypes = () => {
         texture={couch}
         name="Edward Couch"
         rank="Mate"
+      />
+      <Daguerreotype
+        position={[3, -2, -160]}
+        texture={goodsir}
+        name="Harry Goodsir"
+        rank="Assistant Surgeon"
       />
     </OffsetScrollSection>
   )

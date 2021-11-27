@@ -2,16 +2,10 @@
 const path = require(`path`);
 
 module.exports = {
-  style: {
-    postcss: {
-      plugins: [
-        require('autoprefixer'),
-      ],
-    },
-  },
   webpack: {
     alias: {
       '@images': path.resolve(__dirname, './src/images'),
+      '@fonts': path.resolve(__dirname, './src/fonts'),
     }
   },
 }
