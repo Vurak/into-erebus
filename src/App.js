@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
+
 import Overlay from "./components/Overlay"
+import Cursor from "./components/Cursor";
 import CanvasWrapper from "./components/Canvas";
-import { useState } from "react";
 
 import ScrollContext from "./context/ScrollContext";
 import DepthContext from "./context/DepthContext";
@@ -23,6 +24,7 @@ function App() {
           <TargetContext.Provider value={target_value}>
             <CanvasWrapper overlay={overlay} />
             <Overlay ref={overlay} caption={caption} />
+            <Cursor/>
           </TargetContext.Provider>
         </DepthContext.Provider>
       </ScrollContext.Provider>

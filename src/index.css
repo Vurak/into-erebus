@@ -31,19 +31,23 @@ body,
   overflow: auto;
 }
 
-.intro-container {
-  height: 100vh;
-  width: 100%;
-  background-color: rgb(0, 0, 0);
-  color: #fff;
-  font-family: 'imfell', serif;
-  position: absolute;
-  display: block;
+.cursor {
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  /* position: absolute; */
+  /* display: block; */
   z-index: 10;
-  top: 0;
-  left: 0;
-  overflow-y: auto;
+  transition-duration: 50ms;
+  transition-timing-function: linear;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  transition: transform 0.3s ease-in-out;
 }
+
+
 
 .scroll {
   position: absolute;
