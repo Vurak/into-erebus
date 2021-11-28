@@ -1,24 +1,30 @@
+import { useState } from "react"
 import { useEffect, useRef } from "react"
+
+import './Cursor.css'
 
 const Cursor = () => {
   const cursor = useRef(null)
 
+  const moveCursor = (e) => {
+    cursor.current.setAttribute('style',`transform: translate3d(${e.clientX-20}px, ${e.clientY-window.innerHeight-20}px, 0);`)
+  }
+  
   useEffect(() => {
-    window.addEventListener('mousemove', e => {
-      if (!cursor?.current) return
-      cursor.current.style.top = e.clientY + 'px'
-      cursor.current.style.left = e.clientX + 'px'
-    })
+    if (!cursor?.current) return
+    window.addEventListener('mousemove', moveCursor)
 
     return () => {
-      window.removeEventListener('mousemove', null)
+      window.removeEventListener('mousemove', moveCursor)
     }
-  })
+  }, [])
 
   return (
     <div
     ref={cursor}
-    className="cursor"/>
+    className="cursor"
+    // style={{top: `${cursorPos[0]}px`, left: `${cursorPos[1]}px`}}
+    />
   )
 
 }

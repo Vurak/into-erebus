@@ -25,29 +25,12 @@ body,
   user-select: none;
   overflow: hidden;
   transition: opacity 0.3s ease;
+  cursor: none;
 }
 
 #root {
   overflow: auto;
 }
-
-.cursor {
-  width: 40px;
-  height: 40px;
-  border: 1px solid white;
-  border-radius: 50%;
-  /* position: absolute; */
-  /* display: block; */
-  z-index: 10;
-  transition-duration: 50ms;
-  transition-timing-function: linear;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  transition: transform 0.3s ease-in-out;
-}
-
-
 
 .scroll {
   position: absolute;

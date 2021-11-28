@@ -19,9 +19,9 @@ import {
 const ScrollSections = () => {
   const [hovered, setHovered] = useState(false)
 
-  useEffect(() => {
-    document.body.style.cursor = hovered ? 'pointer' : 'auto'
-  }, [hovered])
+  // useEffect(() => {
+  //   document.body.style.cursor = hovered ? 'pointer' : 'auto'
+  // }, [hovered])
 
   const texture3 = useLoader(THREE.TextureLoader, ship)
   const texture_observers = useLoader(THREE.TextureLoader, observers)

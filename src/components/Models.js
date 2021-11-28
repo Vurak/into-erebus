@@ -15,10 +15,10 @@ export default function Model({ scroll, ...props }) {
   const [hovered, setHovered] = useState()
   const extras = { receiveShadow: true, castShadow: true }
   // useEffect(() => void (actions["CameraAction.005"].play().paused = true), [])
-  useEffect(() => {
-    if (hovered) group.current.getObjectByName(hovered).material.color.set("blue")
-    document.body.style.cursor = hovered ? "pointer" : "auto"
-  }, [hovered])
+  // useEffect(() => {
+  //   if (hovered) group.current.getObjectByName(hovered).material.color.set("blue")
+  //   document.body.style.cursor = hovered ? "pointer" : "auto"
+  // }, [hovered])
 
   useFrame((state) => {
     // actions["CameraAction.005"].time = THREE.MathUtils.lerp(actions["CameraAction.005"].time, actions["CameraAction.005"].getClip().duration * scroll.current, 0.05)
