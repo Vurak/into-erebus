@@ -16,7 +16,7 @@ const Cursor = () => {
   const clickCursor = () => {
     // if (click) return
     setClick(true)
-    setTimeout(() => setClick(false), 500)
+    setTimeout(() => setClick(false), 400)
   }
   
   useEffect(() => {
@@ -36,7 +36,7 @@ const Cursor = () => {
   return (
     <div
     ref={cursor}
-    className={`cursor ${click && 'cursor-click'}`}
+    className={`cursor ${click && 'cursor-click'} ${clickable ? 'cursor-clickable' : ''}`}
     >
       <div className={`cursor-center ${click ? 'cursor-center-click' : ''} ${clickable ? 'cursor-center-clickable' : ''}`}/>
     </div>
