@@ -3,13 +3,52 @@
   height: 40px;
   border: 1px solid white;
   border-radius: 50%;
-  position: absolute;
+  position: fixed;
   z-index: 10;
   -webkit-transition-duration: 100ms;
   transition-duration: 100ms;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
-  will-change: width, height, transform, border;
   pointer-events: none;
-  position: fixed;
+  display: flex;
+}
+
+.cursor-center {
+  width: 5px;
+  height: 5px;
+  background-color: azure;
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+  z-index: 10;
+}
+
+.cursor-click {
+  will-change: background-color;
+  animation: clickAnim1 500ms ease-in-out;
+}
+
+.cursor-center-click {
+  will-change: transform;
+  animation: clickAnim2 500ms ease-in-out;
+}
+
+@keyframes clickAnim1 {
+  0% {
+    background-color: none;
+  } 50% {
+    background-color: rgba(255, 255, 255, 0.616);
+  } 100% {
+    background-color: none;
+  }
+}
+
+@keyframes clickAnim2 {
+  0% {
+    transform: scale(1);
+  } 50% {
+    transform: scale(8);
+  } 100% {
+    transform: scale(1);
+  }
 }
