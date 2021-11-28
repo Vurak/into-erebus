@@ -1,10 +1,14 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, useContext } from "react"
 
 import './Cursor.css'
+import { useCursor } from "./hooks"
 
 const Cursor = () => {
   const cursor = useRef(null)
   const [click, setClick] = useState(false)
+
+  const { clickable } = useCursor()
+  
   const moveCursor = (e) => {
     cursor.current.setAttribute('style',`transform: translate3d(${e.clientX-20}px, ${e.clientY-window.innerHeight-20}px, 0);`)
   }
@@ -25,12 +29,16 @@ const Cursor = () => {
     }
   }, [])
 
+  useEffect(() => {
+    console.log("clickable changed", clickable)
+  }, [clickable])
+
   return (
     <div
     ref={cursor}
     className={`cursor ${click && 'cursor-click'}`}
     >
-      <div className={`cursor-center ${click && 'cursor-center-click'}`}/>
+      <div className={`cursor-center ${click ? 'cursor-center-click' : ''} ${clickable ? 'cursor-center-clickable' : ''}`}/>
     </div>
   )
 
