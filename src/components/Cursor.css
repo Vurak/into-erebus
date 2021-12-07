@@ -6,8 +6,7 @@
   position: fixed;
   z-index: 10;
   will-change: transform, border;
-  transition: transform 100ms ease-out;
-  transition: border 300ms ease-in-out;
+  transition: transform 65ms ease-out, border 300ms ease-in-out;
   pointer-events: none;
   display: flex;
 }
