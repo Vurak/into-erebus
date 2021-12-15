@@ -12,6 +12,15 @@
   overflow: hidden;
 }
 
+.slide-container {
+  margin: auto;
+  padding: 0 20%;
+  max-width: 100vw;
+  font-family: 'Imfell Pica', serif;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
 .slide-arrow {
   height: 100px;
   width: 100vw;
@@ -22,6 +31,11 @@
   transition: color 300ms linear;
 }
 
+.slide-arrow svg {
+  margin: auto;
+  height: 100%;
+}
+
 .slide-arrow:hover {
   color: #fff;
 }
@@ -29,14 +43,8 @@
 .slide-arrow-top {
   top: 0%;
 }
-
 .slide-arrow-bot {
   bottom: 0%;
-}
-
-.slide-arrow svg {
-  margin: auto;
-  height: 100%;
 }
 
 .slide-content {
@@ -52,32 +60,43 @@
   margin: 0;
 }
 
-/* .slide-in::before {
-} */
+.intro-title {
+  font-family: 'Imfell Pica Italic', serif;
+  font-size: 10rem;
+}
+
+.continue-button {
+  margin: auto;
+  display: block;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  height: 5em;
+  width: 5em;
+}
 
 .slide-enter {
   opacity: 0;
-  /* transform: translateY(-100%); */
+  /* transform: perspective(0px) translateZ(0.5px); */
   /* animation: willEnterAnim 500ms forwards; */
 }
 
 .slide-enter-active {
   opacity: 1;
-  transition: all 1000ms ease-in;
-  /* transform: translateY(100%); */
+  transition: all 400ms ease-in;
+  /* transform: perspective(0px) translateZ(0); */
   /* animation: willEnterAnim 500ms forwards; */
 }
 
 .slide-exit {
   opacity: 1;
-  /* transform: translateY(-100%); */
+  /* transform: perspective(0px) translateZ(0); */
   /* animation: willEnterAnim 500ms forwards; */
 }
 
 .slide-exit-active {
   opacity: 0;
-  transition: all 1000ms ease-out;
-  transform: translateZ(-2000px);
+  transition: all 400ms ease-out;
+  /* transform: perspective(0px) translateZ(-0.5px); */
   /* animation: willEnterAnim 500ms forwards; */
 }
 
@@ -104,20 +123,6 @@
     transform: translateY(-200px);
     opacity: 0;
   }
-}
-
-.intro-title {
-  font-family: 'Imfell Pica Italic', serif;
-  font-size: 10rem;
-}
-
-.continue-button {
-  margin: auto;
-  display: block;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  height: 5em;
-  width: 5em;
 }
 
 @media only screen and (max-width: 720px) {

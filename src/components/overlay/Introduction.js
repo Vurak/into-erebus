@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useCursor } from '../hooks'
 import { ArrowRight, ChevronUp, ChevronDown } from '@icons'
 import './introduction.css'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { TransitionGroup, CSSTransition, SwitchTransition } from 'react-transition-group'
 
 const content = [
   {
@@ -22,22 +22,20 @@ const content = [
 
 const Slide = ({s}) => {
   return(    
-    <p className={`${s.title ? 'intro-title' : ''}`}>
-      {s.text}
-    </p>
+    <div className="slide-container">
+      <p className={`${s.title ? 'intro-title' : ''}`}>
+        {s.text}
+      </p>
+    </div>
   )
 }
 
 export const Introduction = () => {
   const [slide, setSlide] = useState(0)
-  const [slideAnimation, setSlideAnimation] = useState(null)
   const { setClickable } = useCursor()
 
   const handleClick = (add=true) => {
-    setSlideAnimation(add ? 'out' : 'in')
     setTimeout(() => {
-      // setSlideAnimation(add ? 'in' : 'out')
-      // setSlideAnimation(null)
       setSlide(s => {
         console.log(s)
         if (add && s < content.length-1) return s+1
@@ -49,7 +47,6 @@ export const Introduction = () => {
 
   return (
     <div className="intro-container">
-      
       <div
         className="slide-arrow slide-arrow-top"
         onMouseEnter={() => setClickable(true)}
@@ -57,24 +54,17 @@ export const Introduction = () => {
         onClick={() => handleClick(false)}>
         <ChevronUp/>
       </div>
-      <TransitionGroup>
+      <SwitchTransition>
         <CSSTransition
           key={content[slide].id}
-          in
-          timeout={1000}
+          timeout={500}
+          addEndListener={(node, done) => node.addEventListener("transitionend", () => setTimeout(() => done,200))}
           classNames="slide"
-          className="intro-text">
+          className="intro-text"
+          >
           <Slide s={content[slide]}/>
         </CSSTransition>
-      </TransitionGroup>
-      
-      {/* <div
-        className={`slide-content ${slideAnimation ? (slideAnimation == 'in' ? 'slide-enter-top' : 'slide-enter-bot') : ''}`}
-        onClick={handleClick}
-        onMouseEnter={() => setClickable(true)}
-        onMouseLeave={() => setClickable(false)}>
-        <Slide s={slide}/>
-      </div> */}
+      </SwitchTransition>
       <div
         className="slide-arrow slide-arrow-bot"
         onMouseEnter={() => setClickable(true)}
