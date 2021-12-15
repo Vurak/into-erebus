@@ -23,23 +23,27 @@
 .cursor-center {
   width: 5px;
   height: 5px;
+  /* box-sizing: border-box; */
   background-color: azure;
-  border-radius: 50%;
-  position: relative;
+  /* display: block; */
+  border-radius: 100%;
+  position: absolute;
+  transform: translate(-0.5px, -0.5px);
+  /* margin: 15px 15px; */
+  top:0; right:0; left: 0; bottom: 0;
   margin: auto;
   z-index: 10;
-  will-change: transform;
-  transition: transform 200ms ease-in-out;
+  /* will-change: transform; */
+  /* transition: transform 200ms ease-in-out; */
 }
 
-
 .cursor-center-click {
-  will-change: transform;
+  /* will-change: transform; */
   animation: clickAnim2 400ms ease-in-out;
 }
 
 .cursor-center-clickable {
-  transform: scale(3);
+  transform: scale(2,2);
 }
 
 @keyframes clickAnim1 {
@@ -54,6 +58,6 @@
 
 @keyframes clickAnim2 {
   50% {
-    transform: scale(8);
+    transform: scale(4);
   }
 }
