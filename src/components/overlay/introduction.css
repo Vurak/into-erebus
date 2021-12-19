@@ -36,7 +36,7 @@
 }
 
 .loading-button-container {
-  height: 20vh;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,13 +45,21 @@
 .start-button {
   margin: auto;
   display: flex;
-  border-radius: 50%;
-  border: 2px solid rgb(56, 56, 56);
-  height: 5em;
-  width: 5em;
+  max-height: 4em;
+  max-width: 4em;
   align-items: center;
   justify-content: center;
   font-family: 'Imfell', serif;
+  font-size: 2em;
+  color: rgba(40,40,40);
+  transition: color 400ms ease-in-out;
+  animation: startPulseAnim 3000ms ease-in-out infinite;
+}
+
+@keyframes startPulseAnim {
+  50% {
+    color:rgb(200, 200, 200);
+  }
 }
 
 .slide-enter {
@@ -75,7 +83,13 @@
 }
 
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 768px) {
+  .intro-title {
+    font-size: 5rem;
+  }
+}
+
+@media only screen and (max-height: 768px) {
   .intro-title {
     font-size: 5rem;
   }
