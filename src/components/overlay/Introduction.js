@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from 'react'
+import { forwardRef, Suspense, useEffect, useState } from 'react'
 import { useCursor } from '../hooks'
 import { ArrowRight, ChevronUp, ChevronDown } from '@icons'
 import './introduction.css'
@@ -41,7 +41,7 @@ const TitleSlide = () => {
 
 let start = 0
 
-export const Introduction = () => {
+export const Introduction = forwardRef(({ setShowIntro }, ref) => {
   const [slide, setSlide] = useState(0)
   const { setClickable } = useCursor()
 
@@ -65,7 +65,7 @@ export const Introduction = () => {
   }, [])
 
   return (
-    <div className="intro-container">
+    <div className="intro-container" ref={ref}>
       {/* <div
         className="slide-arrow slide-arrow-top"
         onMouseEnter={() => setClickable(true)}
@@ -74,7 +74,17 @@ export const Introduction = () => {
         <ChevronUp/>
       </div> */}
 
-      <TitleSlide/>
+      <div className="slide-container">
+        <p className='intro-title'>
+          Into Erebus
+        </p>
+        <SpinnerInfinity
+          size={150}
+          thickness={30}
+          speed={40}
+          color="#fff"
+          secondaryColor="rgb(56, 56, 56)"/>
+      </div>
       {/* <SwitchTransition>
         <CSSTransition
           key={content[slide].id}
@@ -98,4 +108,4 @@ export const Introduction = () => {
       </div> */}
     </div>
   )
-}
+})

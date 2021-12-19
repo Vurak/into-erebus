@@ -9,9 +9,7 @@ import DepthContext from "./context/DepthContext";
 import TargetContext from "./context/TargetContext";
 import CursorContext from "./context/CursorContext";
 import { Introduction } from "./components/overlay/Introduction";
-import { CSSTransition, Transition } from "react-transition-group";
-
-import './components/overlay/introduction.css'
+import { CSSTransition } from "react-transition-group";
 
 import { preloadFont } from "troika-three-text";
 
@@ -36,6 +34,7 @@ function App() {
 
   const overlay = useRef()
   const caption = useRef()
+  const intro = useRef(null)
 
   const checkLoadedFonts = () => {
     console.log(fontsLoaded)
@@ -71,16 +70,14 @@ function App() {
       <ScrollContext.Provider value={scroll_value}>
         <DepthContext.Provider value={200}>
           <TargetContext.Provider value={target_value}>
-            <Transition>
               <CSSTransition
-                in={loading}
+                nodeRef={intro}
+                in={showIntro}
                 unmountOnExit
-                timeout={500}
-                // addEndListener={(node, done) => node.addEventListener("transitionend", () => setTimeout(() => done,200))}
+                timeout={700}
                 classNames="slide">
-                <Introduction/>
+                <Introduction ref={intro} loading={loading} setShowIntro={setShowIntro}/>
               </CSSTransition>
-            </Transition>
             <CanvasWrapper overlay={overlay} loading={loading} setLoading={setLoading}/>
             <Overlay ref={overlay} caption={caption} />
             <CursorContext.Provider value={cursor_value}>

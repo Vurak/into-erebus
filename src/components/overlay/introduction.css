@@ -104,8 +104,8 @@
 
 .slide-exit-active {
   opacity: 0;
-  transition: all 400ms ease-out;
-  /* transform: perspective(0px) translateZ(-0.5px); */
+  transition: all 700ms ease-out;
+  /* transform: perspective(0px) translateZ(2px); */
   /* animation: willEnterAnim 500ms forwards; */
 }
 
