@@ -8,12 +8,15 @@ import ScrollContext from "./context/ScrollContext";
 import DepthContext from "./context/DepthContext";
 import TargetContext from "./context/TargetContext";
 import CursorContext from "./context/CursorContext";
+import { Introduction } from "./components/overlay/Introduction";
 
 
 function App() {
   const [scrollProgress, setScrollProgress] = useState(0)
   const [target, setTarget] = useState(null)
   const [cursorProps, setCursorProps] = useState(null)
+
+  const [loading, setLoading] = useState(true)
 
   const scroll_value = {scrollProgress, setScrollProgress}
   const target_value = {target, setTarget}
@@ -27,9 +30,10 @@ function App() {
       <ScrollContext.Provider value={scroll_value}>
         <DepthContext.Provider value={200}>
           <TargetContext.Provider value={target_value}>
-            <CanvasWrapper overlay={overlay} />
+            {loading && <Introduction/>}
+            <CanvasWrapper overlay={overlay} setLoading={setLoading}/>
+            <Overlay ref={overlay} caption={caption} />
             <CursorContext.Provider value={cursor_value}>
-              <Overlay ref={overlay} caption={caption} />
               <Cursor/>
             </CursorContext.Provider>
           </TargetContext.Provider>
