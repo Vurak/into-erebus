@@ -27,7 +27,7 @@ function App() {
   const [cursorProps, setCursorProps] = useState(null)
 
   const [loading, setLoading] = useState(true)
-
+  const [showIntro, setShowIntro] = useState(true)
   const scroll_value = {scrollProgress, setScrollProgress}
   const target_value = {target, setTarget}
   const cursor_value = {cursorProps, setCursorProps}
@@ -70,6 +70,8 @@ function App() {
       <ScrollContext.Provider value={scroll_value}>
         <DepthContext.Provider value={200}>
           <TargetContext.Provider value={target_value}>
+            <CanvasWrapper overlay={overlay} loading={loading} setLoading={setLoading}/>
+            <CursorContext.Provider value={cursor_value}>
               <CSSTransition
                 nodeRef={intro}
                 in={showIntro}
@@ -78,9 +80,7 @@ function App() {
                 classNames="slide">
                 <Introduction ref={intro} loading={loading} setShowIntro={setShowIntro}/>
               </CSSTransition>
-            <CanvasWrapper overlay={overlay} loading={loading} setLoading={setLoading}/>
-            <Overlay ref={overlay} caption={caption} />
-            <CursorContext.Provider value={cursor_value}>
+              <Overlay ref={overlay} caption={caption} />
               <Cursor/>
             </CursorContext.Provider>
           </TargetContext.Provider>

@@ -21,41 +21,22 @@ const content = [
   }
 ]
 
-const TitleSlide = () => {
+const StartButton = () => {
+  const { setClickable } = useCursor()
+
   return (
-    <>
-      <div className="slide-container">
-          <p className='intro-title'>
-            Into Erebus
-          </p>
-          <SpinnerInfinity
-            size={150}
-            thickness={30}
-            speed={40}
-            color="#fff"
-            secondaryColor="rgb(56, 56, 56)"/>
-      </div>
-    </>
+    <div className="start-button" onClick={() => setClickable(true)} onMouseEnter={() => setClickable(true)} onMouseLeave={() => setClickable(false)}>
+      start
+    </div>
   )
 }
 
 let start = 0
 
-export const Introduction = forwardRef(({ setShowIntro }, ref) => {
-  const [slide, setSlide] = useState(0)
-  const { setClickable } = useCursor()
+export const Introduction = forwardRef(({ loading, setShowIntro }, ref) => {
 
-  const handleClick = (add=true) => {
-    setTimeout(() => {
-      setSlide(s => {
-        console.log(s)
-        if (add && s < content.length-1) return s+1
-        else if (!add && s > 0) return s-1
-        return s
-      })
-    }, 500)
-  }
 
+  // Load time
   useEffect(() => {
     start = new Date().getTime()
     console.log("showed up")
@@ -78,34 +59,15 @@ export const Introduction = forwardRef(({ setShowIntro }, ref) => {
         <p className='intro-title'>
           Into Erebus
         </p>
-        <SpinnerInfinity
-          size={150}
-          thickness={30}
-          speed={40}
-          color="#fff"
-          secondaryColor="rgb(56, 56, 56)"/>
+        {loading
+        ? <SpinnerInfinity
+            size={150}
+            thickness={30}
+            speed={40}
+            color="#fff"
+            secondaryColor="rgb(56, 56, 56)"/>
+        : <StartButton/>}
       </div>
-      {/* <SwitchTransition>
-        <CSSTransition
-          key={content[slide].id}
-          timeout={500}
-          addEndListener={(node, done) => node.addEventListener("transitionend", () => setTimeout(() => done,200))}
-          classNames="slide"
-          className="intro-text"
-          >
-          <Slide s={content[slide]}/>
-        </CSSTransition>
-      </SwitchTransition> */}
-      {/* <div
-        className="slide-arrow slide-arrow-bot"
-        onMouseEnter={() => setClickable(true)}
-        onMouseLeave={() => setClickable(false)}
-        onClick={() => handleClick(true)}>
-        <ChevronDown/>
-      </div> */}
-      {/* <div className="continue-button">
-        <ArrowRight/>
-      </div> */}
     </div>
   )
 })
