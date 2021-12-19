@@ -5,6 +5,8 @@
   color: #fff;
   position: absolute;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: row;
   z-index: 10;
   top: 0;
@@ -63,6 +65,13 @@
 .intro-title {
   font-family: 'Imfell Pica Italic', serif;
   font-size: 10rem;
+  margin: 0;
+}
+
+.intro-subtitle {
+  font-family: 'Imfell Pica Italic', serif;
+  font-size: 2rem;
+  margin: 0;
 }
 
 .continue-button {

@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useCursor } from '../hooks'
 import { ArrowRight, ChevronUp, ChevronDown } from '@icons'
 import './introduction.css'
 import { TransitionGroup, CSSTransition, SwitchTransition } from 'react-transition-group'
+import { SpinnerInfinity } from 'spinners-react'
 
 const content = [
   {
@@ -16,7 +17,7 @@ const content = [
   },
   {
     id: 3,
-    text: "asdasdasdasda. In 1745 the British Admiralty promised a £20,000 prize for whoever discovered this passage."
+    text: "On the 19th of May 1845 HMS Erebus and HMS Terror leave Britain"
   }
 ]
 
@@ -29,6 +30,22 @@ const Slide = ({s}) => {
     </div>
   )
 }
+
+const TitleSlide = () => {
+  return (
+    <>
+      <div className="slide-container">
+          <p className='intro-title'>
+            Into Erebus
+          </p>
+          <SpinnerInfinity size={150} thickness={30} speed={40} color="#fff" secondaryColor="rgb(56, 56, 56)" />
+          
+      </div>
+    </>
+  )
+}
+
+let start = 0
 
 export const Introduction = () => {
   const [slide, setSlide] = useState(0)
@@ -45,16 +62,26 @@ export const Introduction = () => {
     }, 500)
   }
 
+  useEffect(() => {
+    start = new Date().getTime()
+    console.log("showed up")
+    return () => {
+      console.log("went away", new Date().getTime() - start)
+    }
+  }, [])
+
   return (
     <div className="intro-container">
-      <div
+      {/* <div
         className="slide-arrow slide-arrow-top"
         onMouseEnter={() => setClickable(true)}
         onMouseLeave={() => setClickable(false)}
         onClick={() => handleClick(false)}>
         <ChevronUp/>
-      </div>
-      <SwitchTransition>
+      </div> */}
+
+      <TitleSlide/>
+      {/* <SwitchTransition>
         <CSSTransition
           key={content[slide].id}
           timeout={500}
@@ -64,14 +91,14 @@ export const Introduction = () => {
           >
           <Slide s={content[slide]}/>
         </CSSTransition>
-      </SwitchTransition>
-      <div
+      </SwitchTransition> */}
+      {/* <div
         className="slide-arrow slide-arrow-bot"
         onMouseEnter={() => setClickable(true)}
         onMouseLeave={() => setClickable(false)}
         onClick={() => handleClick(true)}>
         <ChevronDown/>
-      </div>
+      </div> */}
       {/* <div className="continue-button">
         <ArrowRight/>
       </div> */}
