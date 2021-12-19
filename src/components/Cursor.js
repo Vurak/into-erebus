@@ -29,10 +29,6 @@ const Cursor = () => {
     }
   }, [])
 
-  useEffect(() => {
-    console.log("clickable changed", clickable)
-  }, [clickable])
-
   return (
     <div
     ref={cursor}
