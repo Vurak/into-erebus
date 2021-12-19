@@ -5,47 +5,11 @@ import ScrollCamera from "./scroll/ScrollCamera"
 
 import ScrollContext from "../context/ScrollContext";
 import TargetContext from "../context/TargetContext";
-import { Introduction } from "./overlay/Introduction";
-import { preloadFont } from "troika-three-text";
 
-import {
-  yujiboku,
-  imfell
-} from '@fonts'
-
-let fontsLoaded = 0
-let requiredFonts = 2
-
-const CanvasWrapper = ({ overlay, setLoading }) => {
+const CanvasWrapper = ({ overlay, loading, setLoading }) => {
   const value_scroll = useContext(ScrollContext)
   const value_target = useContext(TargetContext)
-  
-  const checkLoadedFonts = () => {
-    console.log(fontsLoaded)
-    if (fontsLoaded >= requiredFonts)
-      setLoading(false)
-  }
-  
-  // Load fonts
-  useEffect(() => {
-    preloadFont({
-      font: yujiboku,
-      characters: 'abcdefghijklmnopqrstuvwxyz',
-    }, () => {
-      console.log("preloaded yujiboku")
-      fontsLoaded++
-      checkLoadedFonts()
-    })
 
-    preloadFont({
-      font: imfell,
-      characters: 'abcdefghijklmnopqrstuvwxyz',
-    }, () => {
-      console.log("preloaded imfell")
-      fontsLoaded++
-      checkLoadedFonts()
-    })
-  }, [])
 
   return (
     <Canvas
