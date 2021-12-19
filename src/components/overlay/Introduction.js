@@ -59,14 +59,24 @@ export const Introduction = forwardRef(({ loading, setShowIntro }, ref) => {
         <p className='intro-title'>
           Into Erebus
         </p>
-        {loading
-        ? <SpinnerInfinity
-            size={150}
-            thickness={30}
-            speed={40}
-            color="#fff"
-            secondaryColor="rgb(56, 56, 56)"/>
-        : <StartButton/>}
+        <div className="loading-button-container">
+          <SwitchTransition>
+            <CSSTransition
+              key={loading}
+              timeout={400}
+              classNames="slide">
+              {loading 
+              ? <SpinnerInfinity
+                key="1"
+                size={150}
+                thickness={30}
+                speed={40}
+                color="#fff"
+                secondaryColor="rgb(56, 56, 56)"/>
+              : <StartButton/>}
+            </CSSTransition>
+          </SwitchTransition>
+        </div>
       </div>
     </div>
   )
