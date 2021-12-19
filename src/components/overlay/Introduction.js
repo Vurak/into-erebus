@@ -21,11 +21,11 @@ const content = [
   }
 ]
 
-const StartButton = () => {
+const StartButton = ({ setShowIntro }) => {
   const { setClickable } = useCursor()
 
   return (
-    <div className="start-button" onClick={() => setClickable(true)} onMouseEnter={() => setClickable(true)} onMouseLeave={() => setClickable(false)}>
+    <div className="start-button" onClick={() => setShowIntro(false)} onMouseEnter={() => setClickable(true)} onMouseLeave={() => setClickable(false)}>
       start
     </div>
   )
@@ -67,13 +67,14 @@ export const Introduction = forwardRef(({ loading, setShowIntro }, ref) => {
               classNames="slide">
               {loading 
               ? <SpinnerInfinity
-                key="1"
-                size={150}
-                thickness={30}
-                speed={40}
-                color="#fff"
-                secondaryColor="rgb(56, 56, 56)"/>
-              : <StartButton/>}
+                  key="1"
+                  size={150}
+                  thickness={30}
+                  speed={40}
+                  color="#fff"
+                  secondaryColor="rgb(56, 56, 56)"/>
+              : <StartButton
+                  setShowIntro={setShowIntro}/>}
             </CSSTransition>
           </SwitchTransition>
         </div>

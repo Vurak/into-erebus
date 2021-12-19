@@ -10,6 +10,7 @@ const Cursor = () => {
   const { clickable } = useCursor()
   
   const moveCursor = (e) => {
+    if (window.innerWidth <= 768) return 
     cursor.current.setAttribute('style',`transform: translate3d(${e.clientX-20}px, ${e.clientY-window.innerHeight-20}px, 0);`)
   }
 
