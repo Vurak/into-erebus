@@ -60,6 +60,7 @@ const Daguerreotype = ({position, texture, name, rank}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.1}
+      sdfGlyphSize={16}
       font={imfell_pica}>
       {name}
     </Text>
@@ -68,7 +69,8 @@ const Daguerreotype = ({position, texture, name, rank}) => {
       color="white"
       letterSpacing={0.2}
       fontSize={0.08}
-      font={imfell}>
+      sdfGlyphSize={16}
+      font={imfell_pica}>
       {rank.toUpperCase()}
     </Text>
   </Plane>
@@ -116,7 +118,8 @@ export const Daguerreotypes = () => {
         color="white"
         letterSpacing={0.2}
         fontSize={1}
-        font={imfell}>
+        sdfGlyphSize={16}
+        font={imfell_pica}>
         CREW
       </Text>
       <Daguerreotype
