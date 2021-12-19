@@ -3,18 +3,14 @@ import React, { forwardRef, useContext, useState } from "react"
 import ScrollContext from "../context/ScrollContext"
 import TargetContext from "../context/TargetContext"
 import { timelineTicks } from "../store/store" 
-import { Introduction } from "./overlay/Introduction"
 
 const Overlay = forwardRef(({ caption }, ref) => {
   const { scrollProgress , setScrollProgress } = useContext(ScrollContext)
   const { target, setTarget } = useContext(TargetContext)
   
-  const [introduction, setIntroduction] = useState(false)
 
   return (
     <>
-      {introduction 
-      && <Introduction/>}
       <div
         ref={ref}
         onScroll={(e) => {
