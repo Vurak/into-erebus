@@ -21,16 +21,6 @@ const content = [
   }
 ]
 
-const Slide = ({s}) => {
-  return(    
-    <div className="slide-container">
-      <p className={`${s.title ? 'intro-title' : ''}`}>
-        {s.text}
-      </p>
-    </div>
-  )
-}
-
 const TitleSlide = () => {
   return (
     <>
@@ -38,8 +28,12 @@ const TitleSlide = () => {
           <p className='intro-title'>
             Into Erebus
           </p>
-          <SpinnerInfinity size={150} thickness={30} speed={40} color="#fff" secondaryColor="rgb(56, 56, 56)" />
-          
+          <SpinnerInfinity
+            size={150}
+            thickness={30}
+            speed={40}
+            color="#fff"
+            secondaryColor="rgb(56, 56, 56)"/>
       </div>
     </>
   )
