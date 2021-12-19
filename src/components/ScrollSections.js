@@ -4,14 +4,6 @@ import OffsetScrollSection from "./scroll/OffsetScrollSection"
 import { Html, Plane, useAspect } from "@react-three/drei"
 import { useLoader } from "@react-three/fiber"
 import { NormalizedScrollGroup } from "./scroll/NormalizedScrollGroup"
-import TargetContext from "../context/TargetContext"
-import { preloadFont } from "troika-three-text"
-
-import {
-  imfell_pica,
-  imfell,
-  yujiboku
-} from '@fonts'
 
 import { ship, observers } from '../images'
 
