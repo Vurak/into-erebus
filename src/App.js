@@ -77,7 +77,10 @@ function App() {
                 in={showIntro}
                 unmountOnExit
                 timeout={700}
-                classNames="slide">
+                classNames="slide"
+                onExited={(() => {
+                  setCursorProps(curr => ({...curr, clickable: false}))
+                })}>
                 <Introduction ref={intro} loading={loading} setShowIntro={setShowIntro}/>
               </CSSTransition>
               <Overlay ref={overlay} caption={caption} />
