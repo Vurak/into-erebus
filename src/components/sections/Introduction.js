@@ -12,12 +12,12 @@ import { ship, observers } from '../../images'
 import { NormalizedScrollGroup } from "../scroll/NormalizedScrollGroup"
 
 
-export const Introduction = () => {
+export const Introduction = ({z}) => {
   const ship_tex = useLoader(THREE.TextureLoader, ship)
   const observers_tex = useLoader(THREE.TextureLoader, observers)
   
   return (
-    <OffsetScrollSection offset={[0, 0, 30]}>
+    <OffsetScrollSection offset={[0, 0, z]}>
       <CenterText z={0}>
         {"For a while it had been thought there might be a route\nto the orient over the Americas via the Arctic."}
       </CenterText>

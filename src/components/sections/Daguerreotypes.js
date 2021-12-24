@@ -77,7 +77,7 @@ const Daguerreotype = ({position, texture, name, rank}) => {
   )
 }
 
-export const Daguerreotypes = () => {
+export const Daguerreotypes = ({z}) => {
 
   const [
     collins,
@@ -112,7 +112,7 @@ export const Daguerreotypes = () => {
   ])
 
   return (
-    <OffsetScrollSection offset={[0, 0, 80]}>
+    <OffsetScrollSection offset={[0, 0, z]}>
       <Text 
         position={[0,0,0]}
         color="white"
