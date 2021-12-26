@@ -23,9 +23,17 @@ const ScrollCamera = () => {
   })
 
   return (
-    <group ref={camera} name="Camera" position={[0, 0, 0]} rotation={[1.62, 0, 0]} >
-      <PerspectiveCamera makeDefault far={50} near={0.1} fov={50} rotation={[-Math.PI / 2, 0, 0]}>
+    <group ref={camera} name="Camera" position={[0, 0, 0]} rotation={[0, 0, 0]} >
+      <PerspectiveCamera makeDefault far={50} near={0.1} fov={50} rotation={[0, 0, 0]}>
         <Particles count={5000}/>
+        <rectAreaLight
+          width={10}
+          height={10}
+          intensity={1}
+          position={[1, 4, 0]}
+          rotation={[0, 0, 0]}
+          // castShadow
+        />
       </PerspectiveCamera>
     </group>
   )
