@@ -4,31 +4,30 @@ import OffsetScrollSection from "./scroll/OffsetScrollSection"
 import { Html, Plane, useAspect } from "@react-three/drei"
 import { useLoader } from "@react-three/fiber"
 import { NormalizedScrollGroup } from "./scroll/NormalizedScrollGroup"
+import { CenterText, PlaneImage } from "./sections/utils"
 
 import { ship, observers } from '../images'
+import { BeecheyIsland } from '@images/maps'
+import { imfell } from '@fonts'
 
 // Sections
 import {
   Introduction,
   Daguerreotypes,
+  Beechey,
 
 } from './sections'
 
 const ScrollSections = () => {
-  const [hovered, setHovered] = useState(false)
-
-  // useEffect(() => {
-  //   document.body.style.cursor = hovered ? 'pointer' : 'auto'
-  // }, [hovered])
-
-  const texture3 = useLoader(THREE.TextureLoader, ship)
-  const texture_observers = useLoader(THREE.TextureLoader, observers)
-
+  
   return (
     <>
       <Introduction z={30}/>
-      
-      <Daguerreotypes z={300}/>
+      {/* <CenterText z={300} font={imfell} size={2}>
+        1845
+      </CenterText> */}
+      <Beechey z={300}/>
+      {/* <Daguerreotypes z={300}/> */}
     </>
   )
 }
