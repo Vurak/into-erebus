@@ -15,7 +15,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
         ref={ref}
         onScroll={(e) => {
           const scroll = e.target.scrollTop / (e.target.scrollHeight - window.innerHeight)
-          caption.current.innerText = scroll.toFixed(2)
+          if (caption.current) caption.current.innerText = scroll.toFixed(2)
           setScrollProgress(scroll)
           setTarget(null)
         }}
@@ -32,7 +32,7 @@ const Overlay = forwardRef(({ caption }, ref) => {
             )
           })}
         </div> */}
-        <div style={{ height: "100vh" }}>
+        <div style={{ height: "3000vh" }}>
 
         </div>
         <div style={{ height: "300vh" }}>

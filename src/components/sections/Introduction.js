@@ -35,8 +35,8 @@ export const Introduction = ({z}) => {
       </CenterText>
       <OffsetScrollSection offset={[0, -0.2, 140]}>
         <NormalizedScrollGroup
-          start={0.35}
-          end={0.48}
+          start={0.235}
+          end={0.31}
           deltaPosition={[-7, 0, 0]}>
           <Plane
             name="test"
@@ -46,8 +46,8 @@ export const Introduction = ({z}) => {
           </Plane>
         </NormalizedScrollGroup>
         <NormalizedScrollGroup
-          start={0.35}
-          end={0.48}
+          start={0.235}
+          end={0.31}
           deltaPosition={[-17, 0, 0]}>
           <Plane
             name="test"
@@ -57,8 +57,8 @@ export const Introduction = ({z}) => {
           </Plane>
         </NormalizedScrollGroup>
         <NormalizedScrollGroup
-          start={0.34}
-          end={0.47}
+          start={0.235}
+          end={0.31}
           deltaPosition={[-0.5, 0, 3]}>
           <Plane
             name="test"
