@@ -14,7 +14,20 @@ export const Beechey = ({ z }) => {
 
   return (
     <group position={[0,0,-z]} rotation={[Math.PI/2,0,0]} scale={[5,5,5]}>
-        <NormalizedScrollGroup start={0.47} end={0.5} deltaPosition={[0.2,-0.2,0.05]} lerpFactor={0.1} deltaRotation={[-Math.PI/2.8, -Math.PI/2, Math.PI/8]}>
+        <NormalizedScrollGroup
+        start={0.47}
+        end={0.5}
+        deltaPosition={[0.2,-0.2,0.05]}
+        lerpFactor={0.1}
+        deltaRotation={[-Math.PI/2.8, -Math.PI/2, Math.PI/8]}
+        scale={[1,0.01,1]}
+        deltaScale={[1,1,1]}>
+          <NormalizedScrollGroup
+            start={0.49}
+            end={0.5}
+            lerpFactor={0.1}
+            scale={[1,0,1]}
+            deltaScale={[1,1,1]}>
           <mesh
 
             geometry={nodes.Plane.geometry}
@@ -32,6 +45,7 @@ export const Beechey = ({ z }) => {
             geometry={nodes['Cube006'].geometry}
             material={materials['graves']}
           />
+          </NormalizedScrollGroup>
         </NormalizedScrollGroup>
     </group>
   )
