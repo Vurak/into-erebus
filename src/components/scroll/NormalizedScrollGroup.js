@@ -11,7 +11,7 @@ const lerpVector3 = (initial, final, x) => {
   return current
 }
 
-export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPosition=null, rotation=[0,0,0], deltaRotation=null, lerpFactor=0.01, children}) => {
+export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPosition=null, rotation=[0,0,0], deltaRotation=null, scale=[1,1,1], deltaScale=null, lerpFactor=0.01, children}) => {
   const [normalizedScroll, setNormalizedScroll] = useState(0)
   const { scrollProgress, setScrollProgress } = useContext(ScrollContext)
   const group = useRef()
@@ -28,12 +28,19 @@ export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPositi
     deltaRotation[2]
   ) : null
 
+  const endScaleVector = deltaScale ? new THREE.Vector3(
+    deltaScale[0],
+    deltaScale[1],
+    deltaScale[2]
+  ) : null
+
   useFrame((state, delta) => {
     if (scrollProgress >= start) {
       const nScroll = (scrollProgress-start)/(end - start)
       setNormalizedScroll(nScroll)
       if (endPositionVector) group.current.position.lerp(endPositionVector.clone().multiplyScalar(nScroll > 1 ? 1 : nScroll), lerpFactor)
-
+      if (endScaleVector) group.current.scale.lerp(endScaleVector.clone().multiply(new THREE.Vector3(1,nScroll > 1 ? 1 : nScroll,1)), lerpFactor)
+      
       if (deltaRotation) {
         const quaternionRot = THREE.Quaternion.prototype.setFromEuler(group.current.rotation).slerp(THREE.Quaternion.prototype.setFromEuler(THREE.Euler.prototype.setFromVector3(endRotationVector.clone().multiplyScalar(nScroll > 1 ? 1 : nScroll), 'XYZ')), 0.001)
         
@@ -45,7 +52,7 @@ export const NormalizedScrollGroup = ({start, end, position=[0,0,0], deltaPositi
   })
 
   return(
-    <group ref={group} position={position} rotation={rotation}>
+    <group ref={group} position={position} rotation={rotation} scale={scale}>
       {children}
     </group>
   )
