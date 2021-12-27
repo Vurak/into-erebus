@@ -18,3 +18,13 @@ export const CenterText = ({ z, font=imfell_pica, children, size=1 }) => {
     {children}
   </Text>
 }
+
+export const PlaneImage = ({ image, position, scale }) => {
+  return (
+    <Plane
+      scale={scale}
+      position={position}>
+      <meshBasicMaterial attach="material" map={image} />
+    </Plane>
+  )
+}
